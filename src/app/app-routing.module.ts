@@ -2,22 +2,22 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  {
-    path: '',
-    redirectTo: '/app',
-    pathMatch: 'full'
-  },
-  {
-    path: 'account',
-    loadChildren: './pages/account/account.module#AccountModule'
-  },
-  {
-    path: 'support',
-    loadChildren: './pages/support/support.module#SupportModule'
-  },
+
   {
     path: 'login',
     loadChildren: './pages/login/login.module#LoginModule'
+  },
+  {
+    path: 'meals',
+    loadChildren: './pages/meal/meal.module#MealModule'
+  },
+  {
+    path: 'mymenu',
+    loadChildren: './pages/mymenu/mymenu.module#MymenuModule'
+  },
+  {
+    path: 'schedule',
+    loadChildren: './pages/schedule/schedule.module#ScheduleModule'
   },
   {
     path: 'app',

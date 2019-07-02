@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {ScheduleComponent} from './schedule.component';
 import {FormsModule} from '@angular/forms';
+import {MyMenuRoutingModule} from './myumenu-routing.module';
+import {MymenuComponent} from './mymenu.component';
 import {IonicModule} from '@ionic/angular';
-import {ScheduleRoutingModule} from './schedule-routing.module';
 
 @NgModule({
-  declarations: [ScheduleComponent],
+  declarations: [MymenuComponent],
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ScheduleRoutingModule
+    MyMenuRoutingModule
   ]
 })
-export class ScheduleModule { }
+export class MymenuModule { }

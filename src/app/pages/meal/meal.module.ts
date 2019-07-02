@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {ScheduleComponent} from './schedule.component';
+import {MealComponent} from './meal.component';
 import {FormsModule} from '@angular/forms';
 import {IonicModule} from '@ionic/angular';
-import {ScheduleRoutingModule} from './schedule-routing.module';
+import {MealRoutingModule} from './meal-routing.module';
 
 @NgModule({
-  declarations: [ScheduleComponent],
+  declarations: [MealComponent],
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ScheduleRoutingModule
+    MealRoutingModule
   ]
 })
-export class ScheduleModule { }
+export class MealModule { }

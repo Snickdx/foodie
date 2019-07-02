@@ -4,14 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { MenuPage } from './menu';
-import { SchedulePageRoutingModule } from './menu-routing.module';
+import { MenuRoutingModule } from './menu-routing.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    SchedulePageRoutingModule
+    MenuRoutingModule
   ],
   declarations: [
     MenuPage
