@@ -16,14 +16,6 @@ const routes: Routes = [
     loadChildren: './pages/meal/meal.module#MealModule'
   },
   {
-    path: 'mymenu',
-    loadChildren: './pages/mymenu/mymenu.module#MymenuModule'
-  },
-  {
-    path: 'schedule',
-    loadChildren: './pages/schedule/schedule.module#ScheduleModule'
-  },
-  {
     path: 'tabs',
     loadChildren: './pages/tabs-page/tabs-page.module#TabsModule'
   },
