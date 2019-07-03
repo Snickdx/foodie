@@ -42,7 +42,7 @@
     </ion-card-content>
   </ion-card>
 
-  <ion-fab *ngIf="loggedIn" slot="fixed" vertical="bottom" horizontal="end">
+  <ion-fab *ngIf="loggedIn && selectedIndex > 1" slot="fixed" vertical="bottom" horizontal="end">
     <ion-fab-button color="secondary" (click)="editMenu()">
       <ion-icon name="{{ schedule[selectedIndex].list.length === 0 ? 'add' : 'create'}}"></ion-icon>
     </ion-fab-button>

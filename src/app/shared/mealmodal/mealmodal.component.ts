@@ -10,7 +10,7 @@ import {ModalController, NavParams} from '@ionic/angular';
 export class MealmodalComponent implements OnInit {
 
   meal = {
-    id: undefined,
+    mealId: undefined,
     name:"",
     items: [],
     price:0.00,
@@ -21,10 +21,10 @@ export class MealmodalComponent implements OnInit {
   }
 
   save(){
-    if(this.meal.id === undefined){
+    if(this.meal.mealId === undefined){
       this.ms.createMeal(this.meal);
     }
-    this.ms.updateMeal(this.meal.id, this.meal);
+    this.ms.updateMeal(this.meal.mealId, this.meal);
     this.modal.dismiss(this.meal);
   }
 

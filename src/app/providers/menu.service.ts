@@ -27,6 +27,9 @@ export class MenuService{
     }
   ];
 
+  mealIndex = 4;
+  menuIndex = 4;
+
   today= new Date();
 
   schedule = [
@@ -94,26 +97,29 @@ export class MenuService{
   ];
 
   createMeal(meal){
-
+    meal.mealId = this.mealIndex++;
+    this.meals.push(meal);
+    return this.mealIndex;
   }
 
   updateMeal(mealId, meal){
-    this.meals.forEach((curmeal, idx)=>{
-      if(meal.mealId === mealId)this.meals[idx]=meal;
+    this.meals.forEach((curmeal, idx, array)=>{
+      if(curmeal.mealId === mealId)array[idx]=meal;
     })
   }
 
-  createMenu(menu){
-
+  deleteMeal(mealId){
+    this.meals = this.meals.filter(meal=>meal.mealId !== mealId);
   }
 
-  updateMenu(id, menu){
-
+  createMenu(index, menu){
+    menu.menuId = this.menuIndex++;
+    this.schedule[index] = menu;
   }
 
-  deleteMenu(id){
-
-  }
+  updateMenu(index, newmenu){
+    this.schedule[index]= newmenu;
+  }lo
 
   async getMeals(){
     return this.meals;
@@ -122,7 +128,5 @@ export class MenuService{
   async getSchedule(){
     return this.schedule;
   }
-
-
 
 }

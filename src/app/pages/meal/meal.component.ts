@@ -21,16 +21,16 @@ export class MealComponent implements OnInit {
   constructor(public ms:MenuService, public modal: ModalController) { }
 
   async addMeal(){
-    {
       const modal = await this.modal.create({
         component: MealmodalComponent,
       });
-      return await modal.present();
-    }
+      await modal.present();
+      await this.refreshMeals();
   }
 
-  async deleteMeal(meal){
-
+  async deleteMeal(mealId){
+    await this.ms.deleteMeal(mealId);
+    this.refreshMeals();
   }
 
   async editMeal(meal){
@@ -40,14 +40,14 @@ export class MealComponent implements OnInit {
           'mealJSON': JSON.stringify(meal)
         }
       });
-    const { data } = await modal.onWillDismiss();
-    this.ms.updateMeal(meal.mealId, data);
+    await modal.present();
     await this.refreshMeals();
-    return data;
   }
 
   async refreshMeals(){
-    this.meals = await this.ms.getMeals();
+    let meals = await this.ms.getMeals();
+    this.meals = meals;
+
   }
 
   async ngOnInit() {

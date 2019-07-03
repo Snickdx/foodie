@@ -48,7 +48,7 @@ export class MenumodalComponent implements OnInit {
   }
 
   cancel() {
-    this.modal.dismiss();
+    this.modal.dismiss(this.menu);
   }
 
 }
