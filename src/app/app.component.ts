@@ -21,12 +21,12 @@ export class AppComponent implements OnInit {
   appPages = [
     {
       title: 'Meals Menu',
-      url: 'app/tabs/menu',
+      url: 'tabs/menu',
       icon: 'list'
     },
     {
       title: 'About',
-      url: '/app/tabs/about',
+      url: 'tabs/about',
       icon: 'information-circle'
     }
   ];

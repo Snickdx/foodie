@@ -8,10 +8,10 @@
 
   <ion-toolbar>
     <ion-buttons slot="secondary">
-      <ion-button (click)="back()" [hidden]="isLast()">
+      <ion-button (click)="back()" [disabled]="isLast()">
         <ion-icon slot="icon-only" name="arrow-back"> </ion-icon>
       </ion-button>
-      <ion-button (click)="forward()" [hidden]="isFirst()">
+      <ion-button (click)="forward()" [disabled]="isFirst()">
         <ion-icon slot="icon-only" name="arrow-forward"  ></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -22,15 +22,15 @@
 </ion-header>
 <ion-content>
 
-  <ion-card *ngFor="let menu of schedule[selectedIndex].menu">
+  <ion-card *ngFor="let meal of schedule[selectedIndex].menu">
     <ion-card-header>
-      <ion-card-title>{{menu.name}}</ion-card-title>
-      <ion-card-subtitle> Price: ${{menu.price}}</ion-card-subtitle>
+      <ion-card-title>{{meal.name}}</ion-card-title>
+      <ion-card-subtitle> Price: ${{meal.price}}</ion-card-subtitle>
     </ion-card-header>
 
-    <ion-item *ngFor="let item of menu.items">
-      <ion-label>{{item.name}}</ion-label>
-    </ion-item>
+    <ion-card-content>
+      <ion-text>{{meal.description}}</ion-text>
+    </ion-card-content>
 
 
   </ion-card>

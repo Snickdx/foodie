@@ -14,7 +14,10 @@ import {MenuService} from '../../providers/menu.service';
 export class MenuPage implements OnInit {
 
 
-  schedule = [];
+  schedule = [{
+    date:"",
+    menu:[]
+  }];
   selectedIndex = 0;
 
 
@@ -29,8 +32,8 @@ export class MenuPage implements OnInit {
     public user: UserData
   ) { }
 
-  ngOnInit() {
-    this.schedule = this.menu.getSchedule();
+  async ngOnInit() {
+    this.schedule = await this.menu.getSchedule();
   }
 
   isFirst(){

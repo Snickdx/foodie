@@ -1,3 +1,44 @@
-<p>
-  meal works!
-</p>
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Meals</ion-title>
+  </ion-toolbar>
+
+
+</ion-header>
+<ion-content>
+
+  <ion-card *ngFor="let meal of meals">
+    <ion-card-header>
+      <ion-card-title>{{meal.name}}</ion-card-title>
+      <ion-card-subtitle> Price: ${{meal.price}}</ion-card-subtitle>
+
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-text>{{meal.description}}</ion-text>
+    </ion-card-content>
+
+    <ion-card-content>
+      <ion-button (click)="editMeal(meal)">
+        Edit
+        <ion-icon slot="end" name="create"></ion-icon>
+      </ion-button>
+      <ion-button color="danger" (click)="deleteMeal(meal)">
+        Remove
+        <ion-icon slot="end" name="trash"></ion-icon>
+      </ion-button>
+    </ion-card-content>
+
+  </ion-card>
+
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end" #fab>
+    <ion-fab-button (click)="addMeal()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

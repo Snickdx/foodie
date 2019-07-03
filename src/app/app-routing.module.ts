@@ -2,7 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-
+  {
+    path: '',
+    redirectTo: '/tabs/menu',
+    pathMatch: 'full'
+  },
   {
     path: 'login',
     loadChildren: './pages/login/login.module#LoginModule'
@@ -20,7 +24,7 @@ const routes: Routes = [
     loadChildren: './pages/schedule/schedule.module#ScheduleModule'
   },
   {
-    path: 'app',
+    path: 'tabs',
     loadChildren: './pages/tabs-page/tabs-page.module#TabsModule'
   },
 

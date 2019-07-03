@@ -6,267 +6,112 @@ import {HttpClient} from '@angular/common/http';
 })
 export class MenuService{
 
-    getMenu(){
+  getMenu(){
 
-    }
+  }
 
-    getMenus(){
-      return []
-    }
+  getMenus(){
+    return []
+  }
 
-    getItems(){
 
-    }
 
-    createItem(){
 
-    }
+  createMeal(meal){
 
-    createMenu(){
+  }
 
-    }
+  updateMeal(id, meal){
 
-    updateMenu(){
+  }
 
-    }
+  createMenu(menu){
 
-    deleteMenu(){
+  }
 
-    }
+  updateMenu(id, menu){
 
-    updatItem(){
+  }
 
-    }
+  deleteMenu(id){
 
-    deleteItem(){
+  }
 
-    }
+  async getMeals(){
+    return [
+      {
+        mealId:1,
+        name:"Large Stew Chicken Lunch",
+        description:"Stew Chicken, fresh salad, pigeon peas, macaroni pie",
+        price: 35.00
+      },
+      {
+        mealId:2,
+        name:"Large Stew Beef Lunch",
+        description:"Stew beef, fresh salad, pigeon peas, macaroni pie",
+        price: 40.00
+      },
+      {
+        mealId:3,
+        name: "Oxtail Soup",
+        description:"Oxtail, provision, dumpling",
+        price:30.00
+      }
+    ]
+  }
 
-    scheduleMenu(){
 
-    }
+  scheduleMenu(){
 
-    getSchedule(){
-      let date= new Date();
-      return [
-        {date :date.toDateString(),  menu:[
-            {
-              name:"Large Stew Chicken Lunch",
-              items:[
-                {
-                  id:1,
-                  name:"Vegetable Rice",
-                  description:""
-                },
-                {
-                  id:2,
-                  name:"Stew Chicken",
-                  description:""
-                },
-                {
-                  id:3,
-                  name:"Fresh Salad",
-                  description:""
-                },
-                {
-                  id:4,
-                  name:"Read Beans",
-                  description:""
-                }
-              ],
-              price: 35.00
-            },
-            {
-              name:"Large Stew Beef Lunch",
-              items:[
-                {
-                  id:1,
-                  name:"Vegetable Rice",
-                  description:""
-                },
-                {
-                  id:5,
-                  name:"Stew Beef",
-                  description:""
-                },
-                {
-                  id:3,
-                  name:"Fresh Salad",
-                  description:""
-                },
-                {
-                  id:4,
-                  name:"Read Beans",
-                  description:""
-                }
-              ],
-              price: 40.00
-            },
-          ]},
-        {date :new Date(date.getTime() - (1*86400000)).toDateString(), menu:[
-            {
-              name:"Large Stew Chicken Lunch",
-              items:[
-                {
-                  id:1,
-                  name:"Vegetable Rice",
-                  description:""
-                },
-                {
-                  id:2,
-                  name:"Stew Chicken",
-                  description:""
-                },
-                {
-                  id:3,
-                  name:"Fresh Salad",
-                  description:""
-                },
-                {
-                  id:4,
-                  name:"Read Beans",
-                  description:""
-                }
-              ],
-              price: 35.00
-            },
-            {
-              name:"Large Stew Beef Lunch",
-              items:[
-                {
-                  id:1,
-                  name:"Vegetable Rice",
-                  description:""
-                },
-                {
-                  id:5,
-                  name:"Stew Beef",
-                  description:""
-                },
-                {
-                  id:3,
-                  name:"Fresh Salad",
-                  description:""
-                },
-                {
-                  id:4,
-                  name:"Read Beans",
-                  description:""
-                }
-              ],
-              price: 40.00
-            },
-          ]},
-        {date :new Date(date.getTime() - (2*86400000)).toDateString(), menu:[
-            {
-              name:"Large Stew Chicken Lunch",
-              items:[
-                {
-                  id:1,
-                  name:"Vegetable Rice",
-                  description:""
-                },
-                {
-                  id:2,
-                  name:"Stew Chicken",
-                  description:""
-                },
-                {
-                  id:3,
-                  name:"Fresh Salad",
-                  description:""
-                },
-                {
-                  id:4,
-                  name:"Read Beans",
-                  description:""
-                }
-              ],
-              price: 35.00
-            },
-            {
-              name:"Large Stew Beef Lunch",
-              items:[
-                {
-                  id:1,
-                  name:"Vegetable Rice",
-                  description:""
-                },
-                {
-                  id:5,
-                  name:"Stew Beef",
-                  description:""
-                },
-                {
-                  id:3,
-                  name:"Fresh Salad",
-                  description:""
-                },
-                {
-                  id:4,
-                  name:"Read Beans",
-                  description:""
-                }
-              ],
-              price: 40.00
-            },
-          ]},
-        {date :new Date(date.getTime() - (3*86400000)).toDateString(), menu:[
-            {
-              name:"Large Stew Chicken Lunch",
-              items:[
-                {
-                  id:1,
-                  name:"Vegetable Rice",
-                  description:""
-                },
-                {
-                  id:2,
-                  name:"Stew Chicken",
-                  description:""
-                },
-                {
-                  id:3,
-                  name:"Fresh Salad",
-                  description:""
-                },
-                {
-                  id:4,
-                  name:"Read Beans",
-                  description:""
-                }
-              ],
-              price: 35.00
-            },
-            {
-              name:"Large Stew Beef Lunch",
-              items:[
-                {
-                  id:1,
-                  name:"Vegetable Rice",
-                  description:""
-                },
-                {
-                  id:5,
-                  name:"Stew Beef",
-                  description:""
-                },
-                {
-                  id:3,
-                  name:"Fresh Salad",
-                  description:""
-                },
-                {
-                  id:4,
-                  name:"Read Beans",
-                  description:""
-                }
-              ],
-              price: 40.00
-            },
-          ]}
-      ]
-    }
+  }
+
+  async getSchedule(){
+    let date= new Date();
+    return [
+      {date :date.toDateString(),  menu:[
+          {
+            mealId:1,
+            name:"Large Stew Chicken Lunch",
+            description:"Stew Chicken, fresh salad, pigeon peas, macaroni pie",
+            price: 35.00
+          },
+          {
+            mealId:2,
+            name:"Large Stew Beef Lunch",
+            description:"Stew beef, fresh salad, pigeon peas, macaroni pie",
+            price: 40.00
+          },
+        ]},
+      {date :new Date(date.getTime() - (1*86400000)).toDateString(), menu:[
+          {
+            mealId:1,
+            name:"Large Stew Chicken Lunch",
+            description:"Stew Chicken, fresh salad, pigeon peas, macaroni pie",
+            price: 35.00
+          },
+          {
+            mealId:2,
+            name:"Large Stew Beef Lunch",
+            description:"Stew beef, fresh salad, pigeon peas, macaroni pie",
+            price: 40.00
+          },
+        ]},
+      {date :new Date(date.getTime() - (2*86400000)).toDateString(), menu:[
+          {
+            mealId:1,
+            name:"Large Stew Chicken Lunch",
+            description:"Stew Chicken, fresh salad, pigeon peas, macaroni pie",
+            price: 35.00
+          },
+          {
+            mealId:2,
+            name:"Large Stew Beef Lunch",
+            description:"Stew beef, fresh salad, pigeon peas, macaroni pie",
+            price: 40.00
+          },
+        ]}
+    ]
+  }
 
 
 

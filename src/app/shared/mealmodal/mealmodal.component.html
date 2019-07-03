@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ meal.mealId ? "Edit" : "Create"}} Meal</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="padding:5px">
+  <ion-grid>
+    <ion-row align-items-end>
+      <ion-col align-self-center>
+        <ion-item>
+          <ion-label position="fixed">Name</ion-label>
+          <ion-input [(ngModel)]="meal.name"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="fixed">Price</ion-label>
+          <ion-input [(ngModel)]="meal.price" type="number"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Description</ion-label>
+          <ion-textarea [(ngModel)]="meal.description" rows="6" cols="20" placeholder="Rice, Peas, Stew Chicken..."></ion-textarea>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row style="position:absolute; bottom:10px" align-items-end>
+      <ion-col size="6">
+        <ion-button type="block" (click)="save()">
+          Save
+          <ion-icon slot="end" name="save"></ion-icon>
+        </ion-button >
+      </ion-col>
+      <ion-col size="6">
+        <ion-button type="block" color="danger" (click)="cancel()">
+          Cancel
+          <ion-icon slot="end" name="close"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+<!--  <ion-list>-->
+<!--    <ion-item *ngFor="let item of items">-->
+<!--      <ion-label>{{item.name}}</ion-label>-->
+<!--      <ion-checkbox slot="end" [(ngModel)]="item.isChecked"></ion-checkbox>-->
+<!--    </ion-item>-->
+<!--  </ion-list>-->
+
+</ion-content>
