@@ -34,19 +34,24 @@ export class MealComponent implements OnInit {
   }
 
   async editMeal(meal){
-    {
-      const modal = await this.modal.create({
+    const modal = await this.modal.create({
         component: MealmodalComponent,
         componentProps: {
           'mealJSON': JSON.stringify(meal)
         }
       });
-      return await modal.present();
-    }
+    const { data } = await modal.onWillDismiss();
+    this.ms.updateMeal(meal.mealId, data);
+    await this.refreshMeals();
+    return data;
+  }
+
+  async refreshMeals(){
+    this.meals = await this.ms.getMeals();
   }
 
   async ngOnInit() {
-    this.meals = await this.ms.getMeals();
+    await this.refreshMeals();
   }
 
 }

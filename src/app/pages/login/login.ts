@@ -27,11 +27,8 @@ export class LoginPage {
 
     if (form.valid) {
       this.userData.login(this.login.username);
-      this.router.navigateByUrl('/app/tabs/menu');
+      this.router.navigateByUrl('/tabs/menu');
     }
   }
 
-  onSignup() {
-    this.router.navigateByUrl('/signup');
-  }
 }

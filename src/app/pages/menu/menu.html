@@ -7,22 +7,25 @@
   </ion-toolbar>
 
   <ion-toolbar>
-    <ion-buttons slot="secondary">
-      <ion-button (click)="back()" [disabled]="isLast()">
-        <ion-icon slot="icon-only" name="arrow-back"> </ion-icon>
-      </ion-button>
-      <ion-button (click)="forward()" [disabled]="isFirst()">
-        <ion-icon slot="icon-only" name="arrow-forward"  ></ion-icon>
-      </ion-button>
-    </ion-buttons>
-    <ion-title>{{isFirst() ? 'Today\'s Menu' : '' }} {{schedule[selectedIndex].date}}</ion-title>
+      <ion-grid>
+        <ion-row>
+          <ion-button color="secondary" (click)="back()" [disabled]="isFirst()">
+            <ion-icon slot="icon-only" name="arrow-back"> </ion-icon>
+          </ion-button>
 
+          <ion-title>{{selectedIndex === 2 ? 'Today\'s Menu' : '' }} {{schedule[selectedIndex].date}}</ion-title>
+
+          <ion-button color="secondary" (click)="forward()" [disabled]="isLast()">
+            <ion-icon slot="icon-only" name="arrow-forward"  ></ion-icon>
+          </ion-button>
+        </ion-row>
+      </ion-grid>
   </ion-toolbar>
 
 </ion-header>
 <ion-content>
 
-  <ion-card *ngFor="let meal of schedule[selectedIndex].menu">
+  <ion-card *ngFor="let meal of schedule[selectedIndex].list">
     <ion-card-header>
       <ion-card-title>{{meal.name}}</ion-card-title>
       <ion-card-subtitle> Price: ${{meal.price}}</ion-card-subtitle>
@@ -31,10 +34,19 @@
     <ion-card-content>
       <ion-text>{{meal.description}}</ion-text>
     </ion-card-content>
-
-
   </ion-card>
 
+  <ion-card *ngIf="schedule[selectedIndex].list.length === 0">
+    <ion-card-content>
+      This menu is empty! Add meals to this menu by logging in and pressing the blue "+" button.
+    </ion-card-content>
+  </ion-card>
+
+  <ion-fab *ngIf="loggedIn" slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button color="secondary" (click)="editMenu()">
+      <ion-icon name="{{ schedule[selectedIndex].list.length === 0 ? 'add' : 'create'}}"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 
 
 </ion-content>

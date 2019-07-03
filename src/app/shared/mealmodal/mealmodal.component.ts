@@ -25,6 +25,7 @@ export class MealmodalComponent implements OnInit {
       this.ms.createMeal(this.meal);
     }
     this.ms.updateMeal(this.meal.id, this.meal);
+    this.modal.dismiss(this.meal);
   }
 
   async ngOnInit() {
@@ -35,8 +36,6 @@ export class MealmodalComponent implements OnInit {
   cancel() {
     // using the injected ModalController this page
     // can "dismiss" itself and optionally pass back data
-    this.modal.dismiss({
-      'dismissed': true
-    });
+    this.modal.dismiss();
   }
 }

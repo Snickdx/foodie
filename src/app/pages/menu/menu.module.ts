@@ -5,17 +5,19 @@ import { IonicModule } from '@ionic/angular';
 
 import { MenuPage } from './menu';
 import { MenuRoutingModule } from './menu-routing.module';
+import {MenumodalComponent} from '../../shared/menumodal/menumodal.component';
 
 @NgModule({
+  declarations: [
+    MenuPage,
+    MenumodalComponent
+  ],
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     MenuRoutingModule
   ],
-  declarations: [
-    MenuPage
-  ],
-  entryComponents: []
+  entryComponents: [MenumodalComponent]
 })
 export class MenuModule { }

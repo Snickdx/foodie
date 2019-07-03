@@ -1,10 +1,10 @@
-import { Component, ViewChild, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertController, IonList, LoadingController, ModalController, ToastController } from '@ionic/angular';
+import {AlertController, Events, ModalController, ToastController} from '@ionic/angular';
 
-import { ConferenceData } from '../../providers/conference-data';
 import { UserData } from '../../providers/user-data';
 import {MenuService} from '../../providers/menu.service';
+import {MenumodalComponent} from '../../shared/menumodal/menumodal.component';
 
 @Component({
   selector: 'page-menu',
@@ -14,26 +14,33 @@ import {MenuService} from '../../providers/menu.service';
 export class MenuPage implements OnInit {
 
 
-  schedule = [{
+  schedule = [null, null, {
     date:"",
-    menu:[]
+    list:[{
+      name:"",
+      price:0,
+      description:""
+    }]
   }];
-  selectedIndex = 0;
 
+  selectedIndex = 2;
+
+  loggedIn;
 
   constructor(
     public alertCtrl: AlertController,
-    public confData: ConferenceData,
-    public loadingCtrl: LoadingController,
-    public modalCtrl: ModalController,
     public router: Router,
+    public userData: UserData,
     public toastCtrl: ToastController,
     public menu: MenuService,
-    public user: UserData
+    public events: Events,
+    public modal: ModalController
   ) { }
 
   async ngOnInit() {
     this.schedule = await this.menu.getSchedule();
+    this.checkLoginStatus();
+    this.listenForLoginEvents();
   }
 
   isFirst(){
@@ -45,12 +52,50 @@ export class MenuPage implements OnInit {
   }
 
   forward(){
-    if(!this.isFirst())this.selectedIndex--;
-    console.log(this.selectedIndex);
+    this.selectedIndex++;
   }
 
   back(){
-    if(!this.isLast())this.selectedIndex++;
-    console.log(this.selectedIndex);
+    this.selectedIndex--;
   }
+
+  checkLoginStatus() {
+    return this.userData.isLoggedIn().then(loggedIn => {
+      return this.updateLoggedInStatus(loggedIn);
+    });
+  }
+
+  updateLoggedInStatus(loggedIn: boolean) {
+    setTimeout(() => {
+      this.loggedIn = loggedIn;
+    }, 300);
+  }
+
+  listenForLoginEvents() {
+    this.events.subscribe('user:login', () => {
+      this.updateLoggedInStatus(true);
+    });
+
+    this.events.subscribe('user:signup', () => {
+      this.updateLoggedInStatus(true);
+    });
+
+    this.events.subscribe('user:logout', () => {
+      this.updateLoggedInStatus(false);
+    });
+  }
+
+  async editMenu(){
+    const modal = await this.modal.create({
+      component: MenumodalComponent,
+      componentProps: {
+        'menuJSON': JSON.stringify(this.schedule[this.selectedIndex])
+      }
+    });
+    await modal.present();
+    const { data } = await modal.onWillDismiss();
+    this.schedule[this.selectedIndex] = data;
+    return data;
+  }
+
 }

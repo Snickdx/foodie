@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>{{ meal.mealId ? "Edit" : "Create"}} Meal</ion-title>
+    <ion-title>Select Meals</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -8,20 +8,12 @@
   <ion-grid>
     <ion-row align-items-end>
       <ion-col align-self-center>
-        <ion-item>
-          <ion-label position="fixed">Name</ion-label>
-          <ion-input [(ngModel)]="meal.name"></ion-input>
-        </ion-item>
-
-        <ion-item>
-          <ion-label position="fixed">Price</ion-label>
-          <ion-input [(ngModel)]="meal.price" type="number"></ion-input>
-        </ion-item>
-
-        <ion-item>
-          <ion-label>Description</ion-label>
-          <ion-textarea [(ngModel)]="meal.description" rows="6" cols="20" placeholder="Rice, Peas, Stew Chicken..."></ion-textarea>
-        </ion-item>
+          <ion-list>
+            <ion-item *ngFor="let meal of meals">
+              <ion-label>{{meal.name}}</ion-label>
+              <ion-checkbox slot="end" [(ngModel)]="meal.isChecked"></ion-checkbox>
+            </ion-item>
+          </ion-list>
       </ion-col>
     </ion-row>
     <ion-row style="position:absolute; bottom:10px" align-items-end>
@@ -39,6 +31,7 @@
       </ion-col>
     </ion-row>
   </ion-grid>
+
 
 
 </ion-content>

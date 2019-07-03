@@ -7,7 +7,10 @@ import {MealRoutingModule} from './meal-routing.module';
 import {MealmodalComponent} from '../../shared/mealmodal/mealmodal.component';
 
 @NgModule({
-  declarations: [MealComponent, MealmodalComponent],
+  declarations: [
+    MealComponent,
+    MealmodalComponent
+  ],
   imports: [
     CommonModule,
     FormsModule,
